@@ -4,7 +4,6 @@
 
 extern float waveTable[16][256];
 
-using namespace componentlibrary;
 
 struct PhaseCzar : Module {
 	enum ParamIds {
