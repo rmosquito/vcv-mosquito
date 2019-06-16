@@ -1,7 +1,6 @@
 #include "Mosquito.hpp"
 // #include "dsp/digital.hpp"
 
-using namespace componentlibrary;
 
 extern float pulseWaveTable[8][256];
 extern float envTable[8][256];
