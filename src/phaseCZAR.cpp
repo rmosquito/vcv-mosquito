@@ -47,7 +47,6 @@ struct PhaseCzar : Module {
 		NUM_LIGHTS
 	};
 
-
 	float phase = 0.0;
 	float phase2 = 0.0;
 	float phase3 = 0.0;
@@ -70,19 +69,14 @@ struct PhaseCzar : Module {
 	// PhaseCzar() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
 	PhaseCzar() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-
-
 		configParam(WAVE_PARAM, 0.0, 15.99, 0.0);
 		configParam(SMOOTH_PARAM, 0.0, 1.0, 1.0);
-
 		configParam(PITCH_PARAM, -3.0, 3.0, 0.0);
 		configParam(PITCH_PARAM2, -3.0, 3.0, 1.0);
 		configParam(PITCH_PARAM3, -3.0, 3.0, 2.0);
-
 		configParam(AMP_PARAM, 0.0, 1.0, 0.5);
 		configParam(AMP_PARAM2, 0.0, 1.0, 0.5);
 		configParam(AMP_PARAM3, 0.0, 1.0, 0.5);
-
 		configParam(INTERPOLATE_ON, 0.0f, 1.0f, 0.0f);
 		configParam(BOOST_ON, 0.0f, 1.0f, 0.0f);
 		configParam(PITCH_ON1, 0.0f, 1.0f, 0.0f);
@@ -92,51 +86,6 @@ struct PhaseCzar : Module {
 	}
 
 	void process(const ProcessArgs &args) override {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		// Implement a simple sine oscillator
 		float deltaTime = args.sampleTime;
 
@@ -171,7 +120,6 @@ struct PhaseCzar : Module {
 			boost = 8;
 		}
 
-
 		// Compute the frequency from the pitch knobs 
 		float pitch = params[PITCH_PARAM].getValue() + (voct * ( int )p1toggle);
 		float pitch2 = params[PITCH_PARAM2].getValue() + (voct * ( int )p2toggle);
@@ -193,9 +141,6 @@ struct PhaseCzar : Module {
 		amp3 = clamp(amp3, 0.0f, 1.0f);
 
 		smooth = clamp(smooth, 0.0f, 1.0f);
-
-
-
 
 		// The default pitch is C4
 		float freq = 261.626f * powf(2.0f, pitch);
@@ -230,11 +175,9 @@ struct PhaseCzar : Module {
 			nextwave = ( int )wave + 1;
 		};
 
-
 		float tone = interpolateLinear(waveTable[( int )wave], phase * 255.f);
 		float tone2 = interpolateLinear(waveTable[( int )wave], phase2 * 255.f);
 		float tone3 = interpolateLinear(waveTable[( int )wave], phase3 * 255.f);
-
 
 		if (interpolatetoggle == 1) {
 			tone = crossfade(
@@ -343,46 +286,46 @@ struct PhaseCzarWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParam<LEDButton>(Vec(6.5, 65.5), module, PhaseCzar::INTERPOLATE_ON));
-		addChild(createLight<MyLight<GreenLight>>(Vec(6.5, 65.5), module, PhaseCzar::INTERPOLATE_LIGHT));
+		addParam(createParam<LEDButton>(Vec(14.5, 65.5), module, PhaseCzar::INTERPOLATE_ON));
+		addChild(createLight<MyLight<GreenLight>>(Vec(14.5, 65.5), module, PhaseCzar::INTERPOLATE_LIGHT));
 
-		addParam(createParam<LEDButton>(Vec(6.5, 261.5), module, PhaseCzar::PITCH_ON1));
-		addChild(createLight<MyLight<GreenLight>>(Vec(6.5, 261.5), module, PhaseCzar::PITCH_LIGHT1));
-		addParam(createParam<LEDButton>(Vec(6.5, 195.5), module, PhaseCzar::PITCH_ON2));
-		addChild(createLight<MyLight<GreenLight>>(Vec(6.5, 195.5), module, PhaseCzar::PITCH_LIGHT2));
-		addParam(createParam<LEDButton>(Vec(6.5, 130.5), module, PhaseCzar::PITCH_ON3));
-		addChild(createLight<MyLight<GreenLight>>(Vec(6.5, 130.5), module, PhaseCzar::PITCH_LIGHT3));
+		addParam(createParam<LEDButton>(Vec(14.5, 261.5), module, PhaseCzar::PITCH_ON1));
+		addChild(createLight<MyLight<GreenLight>>(Vec(14.5, 261.5), module, PhaseCzar::PITCH_LIGHT1));
+		addParam(createParam<LEDButton>(Vec(14.5, 195.5), module, PhaseCzar::PITCH_ON2));
+		addChild(createLight<MyLight<GreenLight>>(Vec(14.5, 195.5), module, PhaseCzar::PITCH_LIGHT2));
+		addParam(createParam<LEDButton>(Vec(14.5, 130.5), module, PhaseCzar::PITCH_ON3));
+		addChild(createLight<MyLight<GreenLight>>(Vec(14.5, 130.5), module, PhaseCzar::PITCH_LIGHT3));
 
-		addParam(createParam<LEDButton>(Vec(141, 326.5), module, PhaseCzar::BOOST_ON));
-		addChild(createLight<MyLight<GreenLight>>(Vec(141.5, 326.5), module, PhaseCzar::BOOST_LIGHT));
+		addParam(createParam<LEDButton>(Vec(149, 326.5), module, PhaseCzar::BOOST_ON));
+		addChild(createLight<MyLight<GreenLight>>(Vec(149, 326.5), module, PhaseCzar::BOOST_LIGHT));
 
-		addParam(createParam<Rogan3PWhite>(Vec(74, 54), module, PhaseCzar::WAVE_PARAM));
-		addParam(createParam<Rogan3PWhite>(Vec(74, 314), module, PhaseCzar::SMOOTH_PARAM));
+		addParam(createParam<Rogan3PWhite>(Vec(82, 53.5), module, PhaseCzar::WAVE_PARAM));
+		addParam(createParam<Rogan3PWhite>(Vec(82, 313.5), module, PhaseCzar::SMOOTH_PARAM));
 
-		addParam(createParam<Rogan3PWhite>(Vec(74, 248.5), module, PhaseCzar::PITCH_PARAM));
-		addParam(createParam<Rogan3PWhite>(Vec(74, 183.5), module, PhaseCzar::PITCH_PARAM2));
-		addParam(createParam<Rogan3PWhite>(Vec(74, 118.5), module, PhaseCzar::PITCH_PARAM3));
+		addParam(createParam<Rogan3PWhite>(Vec(82, 248.5), module, PhaseCzar::PITCH_PARAM));
+		addParam(createParam<Rogan3PWhite>(Vec(82, 183.5), module, PhaseCzar::PITCH_PARAM2));
+		addParam(createParam<Rogan3PWhite>(Vec(82, 118.5), module, PhaseCzar::PITCH_PARAM3));
 
-		addParam(createParam<Rogan3PWhite>(Vec(128.5, 248.5), module, PhaseCzar::AMP_PARAM));
-		addParam(createParam<Rogan3PWhite>(Vec(128.5, 183.5), module, PhaseCzar::AMP_PARAM2));
+		addParam(createParam<Rogan3PWhite>(Vec(136.5, 248.5), module, PhaseCzar::AMP_PARAM));
+		addParam(createParam<Rogan3PWhite>(Vec(136.5, 183.5), module, PhaseCzar::AMP_PARAM2));
 		// addParam(createParam<Rogan3PWhite>(Vec(128.5, 118.5), module, PhaseCzar::AMP_PARAM3, 0.0, 1.0, 0.5));
-		addParam(createParam<Rogan3PWhite>(Vec(128.5, 118.5), module, PhaseCzar::AMP_PARAM3));
+		addParam(createParam<Rogan3PWhite>(Vec(136.5, 118.5), module, PhaseCzar::AMP_PARAM3));
 
-		addInput(createInput<PJ301MPort>(Vec(38, 258), module, PhaseCzar::PITCH_INPUT));
-		addInput(createInput<PJ301MPort>(Vec(38, 193), module, PhaseCzar::PITCH_INPUT2));
-		addInput(createInput<PJ301MPort>(Vec(38, 128), module, PhaseCzar::PITCH_INPUT3));
+		addInput(createInput<PJ301MPort>(Vec(46, 258), module, PhaseCzar::PITCH_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(46, 193), module, PhaseCzar::PITCH_INPUT2));
+		addInput(createInput<PJ301MPort>(Vec(46, 128), module, PhaseCzar::PITCH_INPUT3));
 
-		addInput(createInput<PJ301MPort>(Vec(183, 258), module, PhaseCzar::AMP_INPUT));
-		addInput(createInput<PJ301MPort>(Vec(183, 193), module, PhaseCzar::AMP_INPUT2));
-		addInput(createInput<PJ301MPort>(Vec(183, 128), module, PhaseCzar::AMP_INPUT3));
+		addInput(createInput<PJ301MPort>(Vec(191, 258), module, PhaseCzar::AMP_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(191, 193), module, PhaseCzar::AMP_INPUT2));
+		addInput(createInput<PJ301MPort>(Vec(191, 128), module, PhaseCzar::AMP_INPUT3));
 
 
-		addInput(createInput<PJ301MPort>(Vec(38, 63), module, PhaseCzar::WAVE_INPUT));
-		addInput(createInput<PJ301MPort>(Vec(38, 323), module, PhaseCzar::SMOOTH_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(46, 63), module, PhaseCzar::WAVE_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(46, 323), module, PhaseCzar::SMOOTH_INPUT));
 
-		addInput(createInput<PJ301MPort>(Vec(3, 323), module, PhaseCzar::VOCT_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(11, 323), module, PhaseCzar::VOCT_INPUT));
 
-		addOutput(createOutput<PJ301MPort>(Vec(183.5, 323), module, PhaseCzar::TONE_OUTPUT));
+		addOutput(createOutput<PJ301MPort>(Vec(191.5, 323), module, PhaseCzar::TONE_OUTPUT));
 	}
 };
 

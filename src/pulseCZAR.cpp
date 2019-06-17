@@ -65,7 +65,7 @@ struct PulseCzar : Module {
 		configParam(ENV_PITCH_PARAM, -3.0, 3.0, 0.0);
 		configParam(WAVE_PARAM, 0.0, 7.99, 0.0);
 		configParam(ENV_PARAM, 0.0, 7.99, 0.0);
-		configParam(GAIN_PARAM, 1.0, 10.0, 0.0);
+		configParam(GAIN_PARAM, 1.0, 10.0, 1.0);
 		configParam(WAVE_INTERPOLATE_ON, 0.0f, 1.0f, 0.0f);
 		configParam(ENV_INTERPOLATE_ON, 0.0f, 1.0f, 0.0f);
 		configParam(WAVE_LINK_ON, 0.0f, 1.0f, 0.0f);
@@ -274,19 +274,19 @@ struct PulseCzarWidget : ModuleWidget {
 		addParam(createParam<LEDButton>(Vec(11, 261), module, PulseCzar::ENV_LINK_ON));
 		addChild(createLight<MyLight<GreenLight>>(Vec(11, 261), module, PulseCzar::ENV_LINK_LIGHT));
 
-		addParam(createParam<Rogan3PWhite>(Vec(77, 54), module, PulseCzar::WAVE_PARAM));
+		addParam(createParam<Rogan3PWhite>(Vec(77, 53.5), module, PulseCzar::WAVE_PARAM));
 		addParam(createParam<Rogan3PWhite>(Vec(77, 118.5), module, PulseCzar::ENV_PARAM));
 		addParam(createParam<Rogan3PWhite>(Vec(77, 183.5), module, PulseCzar::WAVE_PITCH_PARAM));
 		addParam(createParam<Rogan3PWhite>(Vec(77, 248.5), module, PulseCzar::ENV_PITCH_PARAM));
-		addParam(createParam<Rogan3PWhite>(Vec(77, 314), module, PulseCzar::MASK_PARAM));
-		addParam(createParam<Trimpot>(Vec(135, 260), module, PulseCzar::GAIN_PARAM));
+		addParam(createParam<Rogan3PWhite>(Vec(77, 313.5), module, PulseCzar::MASK_PARAM));
+		addParam(createParam<Trimpot>(Vec(140, 260), module, PulseCzar::GAIN_PARAM));
 
-		addInput(createInput<PJ301MPort>(Vec(41, 63), module, PulseCzar::WAVE_INPUT));
-		addInput(createInput<PJ301MPort>(Vec(41, 128), module, PulseCzar::ENV_INPUT));
-		addInput(createInput<PJ301MPort>(Vec(41, 193), module, PulseCzar::WAVE_PITCH_INPUT));
-		addInput(createInput<PJ301MPort>(Vec(41, 258), module, PulseCzar::ENV_PITCH_INPUT));
-		addInput(createInput<PJ301MPort>(Vec(41, 323), module, PulseCzar::MASK_INPUT));
-		addInput(createInput<PJ301MPort>(Vec(6, 323), module, PulseCzar::VOCT_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(43, 63), module, PulseCzar::WAVE_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(43, 128), module, PulseCzar::ENV_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(43, 193), module, PulseCzar::WAVE_PITCH_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(43, 258), module, PulseCzar::ENV_PITCH_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(43, 323), module, PulseCzar::MASK_INPUT));
+		addInput(createInput<PJ301MPort>(Vec(8, 323), module, PulseCzar::VOCT_INPUT));
 
 		addOutput(createOutput<PJ301MPort>(Vec(133, 323), module, PulseCzar::TONE_OUTPUT));
 	}
