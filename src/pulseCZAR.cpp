@@ -279,7 +279,7 @@ struct PulseCzarWidget : ModuleWidget {
 		addParam(createParam<Rogan3PWhite>(Vec(77, 183.5), module, PulseCzar::WAVE_PITCH_PARAM));
 		addParam(createParam<Rogan3PWhite>(Vec(77, 248.5), module, PulseCzar::ENV_PITCH_PARAM));
 		addParam(createParam<Rogan3PWhite>(Vec(77, 313.5), module, PulseCzar::MASK_PARAM));
-		addParam(createParam<Trimpot>(Vec(140, 260), module, PulseCzar::GAIN_PARAM));
+		addParam(createParam<Trimpot>(Vec(135.5, 260), module, PulseCzar::GAIN_PARAM));
 
 		addInput(createInput<PJ301MPort>(Vec(43, 63), module, PulseCzar::WAVE_INPUT));
 		addInput(createInput<PJ301MPort>(Vec(43, 128), module, PulseCzar::ENV_INPUT));
