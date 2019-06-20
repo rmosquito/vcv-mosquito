@@ -2,13 +2,13 @@
   "slug": "MosquitoLabs",
   "name": "Mosquito Labs",
   "version": "1.0.0",
-  "license": "proprietary",
+  "license": "GPL-3.0-only",
   "author": "R. Mosquito",
   "authorEmail": "",
   "authorUrl": "",
-  "pluginUrl": "",
-  "manualUrl": "",
-  "sourceUrl": "",
+  "pluginUrl": "https://github.com/rmosquito/vcv-mosquito/",
+  "manualUrl": "https://github.com/rmosquito/vcv-mosquito/",
+  "sourceUrl": "https://github.com/rmosquito/vcv-mosquito/",
   "donateUrl": "",
   "modules": [
     {
