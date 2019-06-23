@@ -3,7 +3,7 @@ Plugins for the VCV soft-synth.
 
 These are based on some Atmel-based physical modules I made a number of years ago.  The software versions here replicate that crunchy 8-bit aliased sound of the originals, but use floats instead of integer math and bit shifts.  Hopefully the hilarious backwards-ness of this amuses you as much as it amused me.  I had not originally intended to post these here due to code-shame, but it seemed the easiest way to make it available. Eventually I'll clean the code up and strike that last sentence.  ;)
 
-![screenshot](https://community.vcvrack.com/uploads/default/original/2X/0/0f6983b9e5ae7a5894bc274f7059921d239e1767.jpeg)
+![screenshot](https://community.vcvrack.com/uploads/default/original/2X/b/bfcb36c6a072f083912b006cfad08d220a8b1482.png)
 
 ## phaseCzar
 
@@ -33,7 +33,7 @@ Integral to Roads' method was the idea of masking -- certain pulses would be ski
 
 Obviously, the gain knob applies again.  As with phaseCzar, going over +/-5V will result in a similar method of wavefolding.
 
-I hope you enjoy these, and if you'd like to produce real documentation for the modules, please do so in the wiki.
+I'd like to give a special nod to @Coirt, as he provided invaluable helpping me figure out how to get them migrated to the 1.0 API.  I hope you enjoy these, and if you'd like to produce real documentation for the modules, please do so in the wiki.
 
 Thanks!
 -RM
