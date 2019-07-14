@@ -33,6 +33,20 @@ Integral to Roads' method was the idea of masking -- certain pulses would be ski
 
 Obviously, the gain knob applies again.  As with phaseCzar, going over +/-5V will result in a similar method of wavefolding.
 
+## foldCzar 
+
+foldCzar is something I never built in hardware because it would have been cumbersome to do with just integer maths and bitshifts.
+
+The built in oscillator is basically a triangle oscillator.  The extra fun comes in the form of a "slope" control which lets you vary the slope of the triangle wave.  With the knob fully CCW, you get a sawtooth-ish wave.  At 12 o'clock you get a triangle, and fully CW you get a ramp wave.  This isn't terribly unique, but it exponentially increases the number of variations that the next two stages provide.
+
+The "fold" knob controls the amount of wavefolding that occurs.  The gain of the siginal is automatically compensated to 10vpp, but at high levels things will get clippy.  If you keep going you wind up with a square wave, so be careful.  
+
+The FOLD output is what you'd expect from a traditional West Coast waveshaper.  The CAT and MTN outputs apply variations of this algorithm that make the waveform look more like a cat and a mountain, respectively.  If you're looking for even more shapes of fun, try summing two or more of the outputs together.
+
+The "swap" knob creates harmonics by inverting the phase of a portion of the wave.  At 12 o-clock (and with the fold knob at zero), it inverts the portion between ground and 2.5V.  
+
+## Thanks
+
 I'd like to give a special nod to @Coirt, as he provided invaluable helpping me figure out how to get them migrated to the 1.0 API.  I hope you enjoy these, and if you'd like to produce real documentation for the modules, please do so in the wiki.
 
 Thanks!

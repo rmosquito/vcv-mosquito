@@ -9,3 +9,4 @@ extern Plugin *pluginInstance;
 // Forward-declare each Model, defined in each module source file
 extern Model *modelPhaseCzar;
 extern Model *modelPulseCzar;
+extern Model *modelFoldCzar;
