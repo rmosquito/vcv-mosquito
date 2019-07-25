@@ -1,9 +1,9 @@
 # vcv-mosquito
 Plugins for the VCV soft-synth.
 
-These are based on some Atmel-based physical modules I made a number of years ago.  The software versions here replicate that crunchy 8-bit aliased sound of the originals, but use floats instead of integer math and bit shifts.  Hopefully the hilarious backwards-ness of this amuses you as much as it amused me.  I had not originally intended to post these here due to code-shame, but it seemed the easiest way to make it available. Eventually I'll clean the code up and strike that last sentence.  ;)
+These are based on some Atmel-based physical modules I made a number of years ago [v1.1 EDIT: plus now one that only lived in my mind].  The software versions here replicate that crunchy 8-bit aliased sound of the originals, but use floats instead of integer math and bit shifts.  Hopefully the hilarious backwards-ness of this amuses you as much as it amused me.  I had not originally intended to post these here due to code-shame, but it seemed the easiest way to make it available. Eventually I'll clean the code up and strike that last sentence.  ;)
 
-![screenshot](https://community.vcvrack.com/uploads/default/original/2X/b/bfcb36c6a072f083912b006cfad08d220a8b1482.png)
+![Screenshot](https://i.imgur.com/OoEBaw5.png)
 
 ## phaseCzar
 
@@ -14,13 +14,13 @@ At it’s core it’s a DDS-based phase distortion oscillator. You can think of 
 
 Hopefully it’s apparent from the lines on the panel, but if the oscillator buttons on the left hand side are lit up, that means the oscillator in question is tied to the v/oct input. As I said, I’m more interested in pitched sounds, so I’ve never actually unlinked the bottom oscillator… but maybe you’ll want to for something? Let me know if that button should stay or go.
 
-The “waveform” knob (and CV input) switches between 16 (8-bit) waveforms. The interpolate button lets you interpolate between those waveforms, wavetable synth style. I like the harshness of no interpolation, but you may like interpolated… niceness.
+The "waveform" knob (and CV input) switches between 16 (8-bit) waveforms. The interpolate button lets you interpolate between those waveforms, wavetable synth style. I like the harshness of no interpolation, but you may like interpolated… niceness.
 
 RIGHT NOW, if all the amplitude knobs are all at 12 o’clock, the signal should be clean. Turning them past 12 will result in wavefolding. The "Boost" button makes that easier to avoid or exploit, depending on your prefernce. 
 
 Tip: turning down the main (lower) oscillator all the way and leaving the other two oscillator up (especially when unlinked from v/oct leads to very formatanty, VOSIM type sounds. Because… that’s basically VOSIM.
 
-The “smooth” knob (and CV input) is the most subtle bit. Part of the original Casio spec for PD involved applying an envelope so that the harsh sync sounds are attenuated. Counter clockwise, you get the maximum harsh sync sound. (In my physical module, I just had a switch, but I thought a jack might be useful for more evolving, subtle sounds. Not really my hat, but it may be yours.)
+The "smooth" knob (and CV input) is the most subtle bit. Part of the original Casio spec for PD involved applying an envelope so that the harsh sync sounds are attenuated. Counter clockwise, you get the maximum harsh sync sound. (In my physical module, I just had a switch, but I thought a jack might be useful for more evolving, subtle sounds. Not really my hat, but it may be yours.)
 
 ## pulseCzar 
 
@@ -41,7 +41,9 @@ The built in oscillator is basically a triangle oscillator.  The extra fun comes
 
 The "fold" knob controls the amount of wavefolding that occurs.  The gain of the siginal is automatically compensated to 10vpp, but at high levels things will get clippy.  If you keep going you wind up with a square wave, so be careful.  
 
-The FOLD output is what you'd expect from a traditional West Coast waveshaper.  The CAT and MTN outputs apply variations of this algorithm that make the waveform look more like a cat and a mountain, respectively.  If you're looking for even more shapes of fun, try summing two or more of the outputs together.
+The FOLD output is what you'd expect from a traditional West Coast waveshaper.  The CAT and MTN outputs apply variations of this algorithm that make the waveform look more like a cat and a mountain, respectively.  If you're looking for even more shapes of fun, try summing two or more of the outputs together, like this:
+
+![screenshot](https://i.imgur.com/SMW7poa.png)
 
 The "swap" knob creates harmonics by inverting the phase of a portion of the wave.  At 12 o-clock (and with the fold knob at zero), it inverts the portion between ground and 2.5V.  
 
