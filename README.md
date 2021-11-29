@@ -25,7 +25,7 @@ The "smooth" knob (and CV input) is the most subtle bit. Part of the original Ca
 ## pulseCzar 
 
 pulseCzar is inspired by Curtis Roads' pulsar synthesis.  You can read his original article on the technique here:
-https://www.curtisroads.net/s/SoundCompwithPulsars.  Also, check out his book _Microsound_.  Fipping through that paper is a good way to get an idea of what's going on here.  It's weird, but think of the "Envelope Pitch" as the master pitch.  The "Waveform Pitch" is more of the timbral color.  As above, there are different waveforms and envelope shapes to choose from.
+[www.curtisroads.net](https://static1.squarespace.com/static/5ad03308fcf7fd547b82eaf7/t/5b75b1181ae6cfab10991421/1534439741265/SoundCompwithPulsars.pdf).  Also, check out his book _Microsound_.  Fipping through that paper is a good way to get an idea of what's going on here.  It's weird, but think of the "Envelope Pitch" as the master pitch.  The "Waveform Pitch" is more of the timbral color.  As above, there are different waveforms and envelope shapes to choose from.
 
 Unlike phaseCzar, pulseCzar only has 8 waveshapes (and 8 envelope shapes).  This was due to the memory limitations of the ATMEGA chips I used on the hardware modules and uh... I didn't make it better here.
 

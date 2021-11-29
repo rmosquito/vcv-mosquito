@@ -4,7 +4,6 @@ using simd::float_4;
 
 struct FoldCzar : Module {
 	enum ParamId {
-		
 		SKEW_PARAM,
 		PITCH_PARAM,
 		FOLD_PARAM,
@@ -29,7 +28,6 @@ struct FoldCzar : Module {
 	float risingPhase = 0.f;
 	float fallingPhase = 0.f;
 	float skew = 0.5f;
-	
 
 	FoldCzar() {
 		// Configure the module
@@ -38,10 +36,18 @@ struct FoldCzar : Module {
 		// Configure parameters
 		// See engine/Param.hpp for config() arguments
 		configParam(PITCH_PARAM, -3.f, 3.f, 0.f, "Pitch", " Hz", 2.f, dsp::FREQ_C4);
-		configParam(SKEW_PARAM, 0.01f, 0.99f, 0.5f);
-		configParam(FOLD_PARAM, 0.99f, 0.f, 0.1f);
-		configParam(SWAP_PARAM, 0.f, 0.99f, 0.5f);
-	
+		configParam(SKEW_PARAM, 0.01f, 0.99f, 0.5f, "Skew");
+		configParam(FOLD_PARAM, 0.99f, 0.f, 0.1f, "Fold");
+		configParam(SWAP_PARAM, 0.f, 0.99f, 0.5f, "Swap");
+
+		configInput(PITCH_INPUT, "Pitch (v/oct)");
+		configInput(SKEW_INPUT, "Skew CV");
+		configInput(SWAP_INPUT, "Swap CV");
+		configInput(FOLD_INPUT, "Fold CV");
+
+		configOutput(MAIN_OUTPUT, "Main");
+		configOutput(CAT_OUTPUT, "Cat algorithm");
+		configOutput(MTN_OUTPUT, "Mountain algorithm");
 	}
 
 	void process(const ProcessArgs &args) override {
@@ -57,7 +63,7 @@ struct FoldCzar : Module {
 		skew += inputs[SKEW_INPUT].getVoltage() / 10;
 		fold += -inputs[FOLD_INPUT].getVoltage() / 10;
 		swap += inputs[SWAP_INPUT].getVoltage() / 10;
-		
+
 		pitch = clamp(pitch, -4.f, 4.f);
 		skew = clamp(skew, 0.01f, 0.99f);
 		fold = clamp(fold, 0.01f, 0.99f);
